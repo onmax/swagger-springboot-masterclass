@@ -1,0 +1,277 @@
+swagger: '2.0'
+info:
+  description: Some custom description of API.
+  version: API TOS
+  title: My REST API
+  termsOfService: Terms of service
+  contact:
+    name: Max
+    url: https://www.github.com
+    email: myeaddress@company.com
+  license:
+    name: License of API
+    url: https://url.license.com
+host: 'localhost:8080'
+basePath: /
+tags:
+  - name: speaker
+    description: Speaker Controller
+  - name: talks
+    description: Talks of the congress
+paths:
+  /users:
+    get:
+      tags:
+        - speaker
+      summary: Get the list of users
+      description: Return a list of all the users
+      operationId: getUsers
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Speaker'
+      deprecated: false
+    post:
+      tags:
+        - speaker
+      summary: Creates an user
+      description: Returns the user
+      operationId: postUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: newUser
+          description: New user info. Must be an SpeakerBean
+          required: true
+          schema:
+            $ref: '#/definitions/SpeakerBean'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Speaker'
+        '400':
+          description: Errors in the input data
+          schema:
+            $ref: '#/definitions/ApiError'
+      deprecated: false
+  '/users/{userId}':
+    get:
+      tags:
+        - speaker
+      summary: Find an user by id
+      description: Returns the user
+      operationId: getUser
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: The unique userId to identify the entity
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Speaker'
+        '404':
+          description: Speaker not found
+          schema:
+            $ref: '#/definitions/ApiError'
+      deprecated: false
+    put:
+      tags:
+        - speaker
+      summary: Edits an user
+      description: Returns the user
+      operationId: putUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: newUser
+          description: Info that wants to be changed. Must be an SpeakerBean
+          required: true
+          schema:
+            $ref: '#/definitions/SpeakerBean'
+        - name: userId
+          in: path
+          description: The unique userId to identify the entity
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Speaker'
+        '400':
+          description: Errors in the input data
+          schema:
+            $ref: '#/definitions/ApiError'
+        '404':
+          description: Speaker not found
+          schema:
+            $ref: '#/definitions/ApiError'
+      deprecated: false
+  /talks:
+    get:
+      tags:
+        - talks
+      summary: Get the list of talks during the congress
+      description: Return a list of talks during the congress
+      operationId: getTalks
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Talk'
+      deprecated: false
+definitions:
+  ApiError:
+    type: object
+    properties:
+      details:
+        type: string
+        example: Speaker with id 23 does not exists
+        description: Useful message for the developer
+      errors:
+        type: array
+        description: More detailed error message for the developer
+        items:
+          type: string
+          example: ["email format not valid", "name is null", "..."]
+      message:
+        type: string
+        example: Error in the input data
+        description: Useful message for the user
+      timestamp:
+        type: string
+        format: date-time
+    title: ApiError
+  Speaker:
+    type: object
+    properties:
+      age:
+        type: integer
+        format: int32
+        example: 20
+        minimum: 13
+        maximum: 65
+        description: Age of the user, only between 13 and 65 are allowed
+      email:
+        type: string
+        format: email
+        example: max@mail.com
+        description: Email of the user
+      id:
+        type: integer
+        format: int32
+        example: 10
+        description: Unique id
+      name:
+        type: string
+        example: Max
+        description: Name of the user
+      social_media:
+        type: object
+        properties: 
+          twitter:
+            type: object
+            properties: 
+              username:
+                type: string
+                example: "max"
+              url:
+                type: string
+                example: "https://twitter.com/max"
+          github:
+            type: object
+            properties: 
+              username:
+                type: string
+              url:
+                type: string
+                example: "https://github.com/max"
+    title: Speaker
+  SpeakerBean:
+    type: object
+    properties:
+      age:
+        type: integer
+        format: int32
+        description: Age of the user, only between 13 and 65 are allowed
+        example: 20
+      email:
+        type: string
+        format: email
+        example: max@mail.com
+        description: Email of the user
+      id:
+        type: integer
+        format: int32
+        example: 10
+        description: Unique id
+      name:
+        type: string
+        example: Max
+        description: Name of the user
+    title: SpeakerBean
+  Talk:
+    type: object
+    title: Talk
+    required:
+      - "title"
+      - "speaker"
+      - "company"
+    properties: 
+      title:
+        type: string
+      speaker:
+        type: object
+        $ref: '#/definitions/Speaker'
+      company:
+        type: object
+        $ref: '#/definitions/Company'
+  Company:
+    type: object
+    title: Company
+    required:
+      - "name"
+      - "logo"
+      - "speaker"
+    properties:
+      name:
+        type: string
+        example: "gfi"
+      logo:
+        type: string
+        pattern: http[s]?:\/\/(?:[a-zA-Z]|[0-9]|[\/.?&+!*=\-])+(?![^,!;:\s)])
+        format: url
+        example: "https://www.image.com/"
+      sponsor_type:
+        type: string
+        enum:
+          - gold
+          - silver
+          - bronze
+        example: silver
+      speaker:
+        type: object
+        $ref: '#/definitions/Speaker'

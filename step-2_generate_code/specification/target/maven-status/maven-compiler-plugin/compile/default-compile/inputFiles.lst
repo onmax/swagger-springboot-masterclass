@@ -1,0 +1,16 @@
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/rest/ApiUtil.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/model/SpeakerSocialMediaTwitter.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/rest/TalksApiDelegate.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/model/SpeakerSocialMediaGithub.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/model/Company.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/rest/UsersApi.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/MasterclassApplication.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/model/Speaker.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/model/SpeakerSocialMedia.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/rest/UsersApiDelegate.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/rest/UsersApiController.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/rest/TalksApi.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/model/SpeakerBean.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/model/Talk.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/model/ApiError.java
+/home/codespace/workspace/swagger-springboot-masterclass/step-2_generate_code/specification/../app/src/main/java/com/org/masterclass/rest/TalksApiController.java

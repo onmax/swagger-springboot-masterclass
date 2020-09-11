@@ -1,0 +1,16 @@
+INTRO:
+- Explicar estructura inicial
+- Explicar yml
+- Explicar openAPI
+- Práctica: Ejecutar comando para crear
+- Oh no!! Problemas de imports y librerias
+- Añadir SWAGGER UI
+- Ver web Swagger UI
+- Explicar /v2/api-docs y swagger ui
+- Explicar con diagrama nueva estructura
+- Implementar una funcion sin @Component con breakpoint y ver que pasa
+
+EDITAR:
+- users -> speakers
+- Quitar speaker de compañia
+- Añadir DELETE speaker
