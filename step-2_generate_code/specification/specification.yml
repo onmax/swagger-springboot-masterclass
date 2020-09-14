@@ -19,13 +19,13 @@ tags:
   - name: talks
     description: Talks of the congress
 paths:
-  /users:
+  /speakers:
     get:
       tags:
         - speaker
-      summary: Get the list of users
-      description: Return a list of all the users
-      operationId: getUsers
+      summary: Get the list of speakers
+      description: Return a list of all the speakers
+      operationId: getSpeakers
       produces:
         - application/json
       responses:
@@ -39,17 +39,17 @@ paths:
     post:
       tags:
         - speaker
-      summary: Creates an user
-      description: Returns the user
-      operationId: postUser
+      summary: Creates an speaker
+      description: Returns the speaker
+      operationId: postSpeaker
       consumes:
         - application/json
       produces:
         - application/json
       parameters:
         - in: body
-          name: newUser
-          description: New user info. Must be an SpeakerBean
+          name: newSpeaker
+          description: New speaker info. Must be an SpeakerBean
           required: true
           schema:
             $ref: '#/definitions/SpeakerBean'
@@ -63,19 +63,19 @@ paths:
           schema:
             $ref: '#/definitions/ApiError'
       deprecated: false
-  '/users/{userId}':
+  '/speakers/{speakerId}':
     get:
       tags:
         - speaker
-      summary: Find an user by id
-      description: Returns the user
-      operationId: getUser
+      summary: Find an speaker by id
+      description: Returns the speaker
+      operationId: getSpeaker
       produces:
         - application/json
       parameters:
-        - name: userId
+        - name: speakerId
           in: path
-          description: The unique userId to identify the entity
+          description: The unique speakerId to identify the entity
           required: true
           type: integer
           format: int32
@@ -92,23 +92,23 @@ paths:
     put:
       tags:
         - speaker
-      summary: Edits an user
-      description: Returns the user
-      operationId: putUser
+      summary: Edits an speaker
+      description: Returns the speaker
+      operationId: putSpeaker
       consumes:
         - application/json
       produces:
         - application/json
       parameters:
         - in: body
-          name: newUser
+          name: newSpeaker
           description: Info that wants to be changed. Must be an SpeakerBean
           required: true
           schema:
             $ref: '#/definitions/SpeakerBean'
-        - name: userId
+        - name: speakerId
           in: path
-          description: The unique userId to identify the entity
+          description: The unique speakerId to identify the entity
           required: true
           type: integer
           format: int32
@@ -160,7 +160,7 @@ definitions:
       message:
         type: string
         example: Error in the input data
-        description: Useful message for the user
+        description: Useful message for the speaker
       timestamp:
         type: string
         format: date-time
@@ -174,12 +174,12 @@ definitions:
         example: 20
         minimum: 13
         maximum: 65
-        description: Age of the user, only between 13 and 65 are allowed
+        description: Age of the speaker, only between 13 and 65 are allowed
       email:
         type: string
         format: email
         example: max@mail.com
-        description: Email of the user
+        description: Email of the speaker
       id:
         type: integer
         format: int32
@@ -188,7 +188,7 @@ definitions:
       name:
         type: string
         example: Max
-        description: Name of the user
+        description: Name of the speaker
       social_media:
         type: object
         properties: 
@@ -216,13 +216,13 @@ definitions:
       age:
         type: integer
         format: int32
-        description: Age of the user, only between 13 and 65 are allowed
+        description: Age of the speaker, only between 13 and 65 are allowed
         example: 20
       email:
         type: string
         format: email
         example: max@mail.com
-        description: Email of the user
+        description: Email of the speaker
       id:
         type: integer
         format: int32
@@ -231,7 +231,7 @@ definitions:
       name:
         type: string
         example: Max
-        description: Name of the user
+        description: Name of the speaker
     title: SpeakerBean
   Talk:
     type: object

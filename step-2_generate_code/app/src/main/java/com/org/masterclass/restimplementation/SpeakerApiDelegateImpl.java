@@ -1,6 +1,8 @@
 package com.org.masterclass.restimplementation;
 
 import com.org.masterclass.model.Speaker;
+import com.org.masterclass.model.SpeakerBean;
+import com.org.masterclass.modelimplementation.SpeakerImpl;
 import com.org.masterclass.rest.SpeakersApiDelegate;
 
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,13 @@ public class SpeakerApiDelegateImpl implements SpeakersApiDelegate {
         speaker.setName("Petros");
         speaker.setEmail("petros@mail.com");
         speaker.setAge(20);
+        return ResponseEntity.ok(speaker);
+    }
+
+    @Override
+    public ResponseEntity<Speaker> postSpeaker(SpeakerBean bean) {
+        SpeakerImpl speaker = new SpeakerImpl();
+        speaker.fromBean(bean);
         return ResponseEntity.ok(speaker);
     }
 }

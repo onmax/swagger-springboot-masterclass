@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * SpeakerSocialMediaGithub
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-09-11T11:47:01.281135Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-09-14T11:36:36.683695Z[Etc/UTC]")
 
 public class SpeakerSocialMediaGithub   {
   @JsonProperty("username")

@@ -1,4 +1,4 @@
-INTRO:
+PASOS:
 - Explicar estructura inicial
 - Explicar yml
 - Explicar openAPI
@@ -9,7 +9,8 @@ INTRO:
 - Explicar /v2/api-docs y swagger ui
 - Explicar con diagrama nueva estructura
 - Implementar una funcion sin @Component con breakpoint y ver que pasa
-
+- Explicar implements de servicios
+- Explicar extends de model
 EDITAR:
 - users -> speakers
 - Quitar speaker de compañia
